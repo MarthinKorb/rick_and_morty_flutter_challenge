@@ -1,16 +1,54 @@
-# rick_and_morty_flutter_challenge
+# Rick and Morty Flutter App
 
-A new Flutter project.
+A Flutter application that lists characters from the [Rick and Morty API](https://rickandmortyapi.com/) with details, implemented using MVVM architecture and Riverpod for state management.
+
+---
+
+## Features
+
+- List characters with name, status and image
+- Character details page showing:
+  - Name
+  - Status
+  - Species
+  - Gender
+- Infinite scroll / pagination
+- Responsive UI with grid layout
+- MVVM architecture with Riverpod
+- Clean and maintainable code
+
+---
+
+## Screenshots
+
+# Characters List
+
+![Characters List](./assets/image.png)
+
+![Characters List](./assets/image-2.png)
+
+![Characters List](./assets/video.webm)
+
+# Detalhes de um personagens
+
+![Character Details](./assets/image-1.png)
+
+---
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK >= 3.0.0
+- Dart >= 3.0.0
+- Internet connection to fetch data from the API
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/rickandmorty_flutter.git
+cd rickandmorty_flutter
+flutter run
+```

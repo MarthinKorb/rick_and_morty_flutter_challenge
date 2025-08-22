@@ -72,29 +72,16 @@ class CharacterDetailPage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        const Icon(Icons.person_outline),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            "Name: ${character.name}",
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-                    Row(
-                      children: [
                         const Icon(Icons.category),
                         const SizedBox(width: 8),
                         Text(
-                          "Espécie: ${character.species}",
+                          "Species: ${character.species}",
                           style: const TextStyle(fontSize: 16),
                         ),
                       ],
                     ),
                     const SizedBox(height: 12),
-                    if (character.type.isNotEmpty)
+                    if (character.type.isNotEmpty) ...[
                       Row(
                         children: [
                           const Icon(Icons.type_specimen),
@@ -107,6 +94,8 @@ class CharacterDetailPage extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const SizedBox(height: 12),
+                    ],
                     Row(
                       children: [
                         const Icon(Icons.transgender),
