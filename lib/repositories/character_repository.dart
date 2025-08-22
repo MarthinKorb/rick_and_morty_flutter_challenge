@@ -2,13 +2,13 @@ import '../models/character.dart';
 import '../services/api_service.dart';
 
 class CharacterRepository {
-  final ApiService _api;
-  CharacterRepository(this._api);
+  final ApiService _apiService;
+  const CharacterRepository(this._apiService);
 
   Future<(List<Character> items, int? nextPage)> fetchCharacters({
     int page = 1,
   }) async {
-    final json = await _api.get('/character', query: {'page': '$page'});
+    final json = await _apiService.get('/character', query: {'page': '$page'});
     final results = (json['results'] as List).cast<Map<String, dynamic>>();
     final items = results.map(Character.fromMap).toList();
 
@@ -25,7 +25,7 @@ class CharacterRepository {
   }
 
   Future<Character> fetchCharacterById(int id) async {
-    final resp = await _api.get('/character/$id');
+    final resp = await _apiService.get('/character/$id');
     return Character.fromMap(resp);
   }
 }

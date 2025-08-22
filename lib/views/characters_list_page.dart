@@ -18,7 +18,6 @@ class _CharactersListPageState extends ConsumerState<CharactersListPage> {
   @override
   void initState() {
     super.initState();
-    // Carrega a primeira página
     Future.microtask(
       () => ref.read(characterListProvider.notifier).loadFirstPage(),
     );

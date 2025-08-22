@@ -29,14 +29,15 @@ class CharacterDetailState {
 }
 
 class CharacterDetailViewModel extends StateNotifier<CharacterDetailState> {
-  final CharacterRepository _repo;
-  CharacterDetailViewModel(this._repo) : super(const CharacterDetailState());
+  final CharacterRepository _characterRepository;
+  CharacterDetailViewModel(this._characterRepository)
+    : super(const CharacterDetailState());
 
   Future<void> loadById(int id) async {
     state = state.copyWith(isLoading: true, error: null);
     try {
-      final c = await _repo.fetchCharacterById(id);
-      state = state.copyWith(character: c, isLoading: false);
+      final character = await _characterRepository.fetchCharacterById(id);
+      state = state.copyWith(character: character, isLoading: false);
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
     }

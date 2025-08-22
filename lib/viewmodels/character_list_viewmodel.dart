@@ -4,13 +4,11 @@ import '../models/character.dart';
 import '../repositories/character_repository.dart';
 import '../services/api_service.dart';
 
-// Providers básicos
 final apiServiceProvider = Provider<ApiService>((ref) => ApiService());
 final characterRepositoryProvider = Provider<CharacterRepository>(
   (ref) => CharacterRepository(ref.read(apiServiceProvider)),
 );
 
-// Estado da lista
 class CharacterListState {
   final List<Character> items;
   final bool isLoading;
@@ -44,13 +42,16 @@ class CharacterListState {
 }
 
 class CharacterListViewModel extends StateNotifier<CharacterListState> {
-  final CharacterRepository _repo;
-  CharacterListViewModel(this._repo) : super(const CharacterListState());
+  final CharacterRepository _charachterRepository;
+  CharacterListViewModel(this._charachterRepository)
+    : super(const CharacterListState());
 
   Future<void> loadFirstPage() async {
     state = state.copyWith(isLoading: true, error: null, currentPage: 1);
     try {
-      final (items, nextPage) = await _repo.fetchCharacters(page: 1);
+      final (items, nextPage) = await _charachterRepository.fetchCharacters(
+        page: 1,
+      );
       state = state.copyWith(
         items: items,
         isLoading: false,
@@ -66,7 +67,9 @@ class CharacterListViewModel extends StateNotifier<CharacterListState> {
     state = state.copyWith(isLoading: true, error: null);
     try {
       final next = state.nextPage ?? 1;
-      final (items, nextPage) = await _repo.fetchCharacters(page: next);
+      final (items, nextPage) = await _charachterRepository.fetchCharacters(
+        page: next,
+      );
       state = state.copyWith(
         items: [...state.items, ...items],
         isLoading: false,

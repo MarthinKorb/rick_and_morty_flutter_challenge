@@ -19,9 +19,9 @@ class CharacterCard extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          color: character.status.toLowerCase() == 'alive'
+          color: character.isAlive
               ? Colors.green.shade100
-              : character.status.toLowerCase() == 'dead'
+              : character.isDead
               ? Colors.red.shade100
               : Colors.grey.shade100,
           child: Padding(
@@ -52,9 +52,9 @@ class CharacterCard extends StatelessWidget {
                     Icon(
                       Icons.circle,
                       size: 12,
-                      color: character.status.toLowerCase() == 'alive'
+                      color: character.isAlive
                           ? Colors.green
-                          : character.status.toLowerCase() == 'dead'
+                          : character.isDead
                           ? Colors.red
                           : Colors.grey,
                     ),

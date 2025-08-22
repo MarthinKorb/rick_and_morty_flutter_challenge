@@ -7,15 +7,10 @@ class CharacterDetailPage extends StatelessWidget {
 
   const CharacterDetailPage({super.key, required this.character});
 
-  Color _statusColor(String status) {
-    switch (status.toLowerCase()) {
-      case 'alive':
-        return Colors.green;
-      case 'dead':
-        return Colors.red;
-      default:
-        return Colors.grey;
-    }
+  Color _statusColor(Character character) {
+    if (character.isAlive) return Colors.green;
+    if (character.isDead) return Colors.red;
+    return Colors.grey;
   }
 
   @override
@@ -47,17 +42,13 @@ class CharacterDetailPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.circle,
-                  size: 12,
-                  color: _statusColor(character.status),
-                ),
+                Icon(Icons.circle, size: 12, color: _statusColor(character)),
                 const SizedBox(width: 6),
                 Text(
                   character.status,
                   style: TextStyle(
                     fontSize: 16,
-                    color: _statusColor(character.status),
+                    color: _statusColor(character),
                   ),
                 ),
               ],

@@ -28,4 +28,7 @@ class Character {
       gender: map['gender'] as String,
     );
   }
+
+  bool get isAlive => status.toLowerCase() == 'alive';
+  bool get isDead => status.toLowerCase() == 'dead';
 }
