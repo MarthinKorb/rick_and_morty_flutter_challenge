@@ -27,7 +27,7 @@ A Flutter application that lists characters from the [Rick and Morty API](https:
 
 ![Characters List](./assets/image-2.png)
 
-![Characters List](./assets/video.webm)
+![Characters List](./assets/a.gif)
 
 # Detalhes de um personagens
 
