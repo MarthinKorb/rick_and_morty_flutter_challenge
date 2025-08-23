@@ -48,7 +48,7 @@ A Flutter application that lists characters from the [Rick and Morty API](https:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/rickandmorty_flutter.git
+git clone https://github.com/MarthinKorb/rick_and_morty_flutter.git
 cd rickandmorty_flutter
 flutter run
 ```
